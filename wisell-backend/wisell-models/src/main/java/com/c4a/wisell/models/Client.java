@@ -3,34 +3,23 @@
  */
 package com.c4a.wisell.models;
 
-import com.mongodb.DBObject;
-import java.util.Date;
-import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Indexed;
-import org.mongodb.morphia.annotations.PostLoad;
-import org.mongodb.morphia.annotations.Property;
 
 /**
  *
  * @author papesdiop
  */
-@Entity("clients")
-public class Client {
+@Entity(value="clients", noClassnameStored=true)
+public class Client extends BaseEntity{
 
     public Client() {
     }
 
-    public Client(String phone, String imei, Date createdAt) {
+    public Client(String phone, String imei) {
         this.phone = phone;
         this.imei = imei;
-        this.createdAt = createdAt;
     }
-
-    // auto-generated, if not set (see ObjectId)
-    @Id
-    private ObjectId id;
 
     @Indexed
     private String phone; // indexed phone field for better performance
@@ -38,29 +27,7 @@ public class Client {
     private String imei;
     private String name = null;
     private String email = null;
-    @Property(value = "createdAt")
-    private Date createdAt;
-
-    //Lifecycle methods -- Pre/PostLoad, Pre/PostPersist...
-    @PostLoad
-    void postLoad(DBObject dbObj) {
-
-    }
-
-    /**
-     * @return the id
-     */
-    public ObjectId getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(ObjectId id) {
-        this.id = id;
-    }
-
+    
     /**
      * @return the phone
      */
@@ -117,18 +84,5 @@ public class Client {
         this.email = email;
     }
 
-    /**
-     * @return the createdAt
-     */
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    /**
-     * @param createdAt the createdAt to set
-     */
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
+   
 }

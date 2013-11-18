@@ -12,56 +12,35 @@ import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Indexed;
 import org.mongodb.morphia.annotations.PostLoad;
+import org.mongodb.morphia.annotations.PrePersist;
 import org.mongodb.morphia.annotations.Property;
 
 /**
  *
  * @author papesdiop
  */
-@Entity("hotspots")
-public class Hotspot {
+@Entity(value="hotspots", noClassnameStored=true)
+public class Hotspot extends BaseEntity{
 
     public Hotspot() {
     }
 
-    public Hotspot(String phone, String imei, Date createdAt) {
+    public Hotspot(String phone, String imei) {
         this.phone = phone;
         this.imei = imei;
-        this.createdAt = createdAt;
     }
-    
 
-    @Id
-    private ObjectId id;
 
     @Indexed
     private String phone; // indexed phone field for better performance
     private String imei;
     private String name = null;
+    private String email = null;
+    private String address = null;
+    private String tel = null;
+    private List<Double> loc = new ArrayList<Double>(); // for geolocation
 
-    String  // not stored if null
-            email = null,
-            address = null,
-            tel = null;
-    List<Double> loc = new ArrayList<Double>(); // for geolocation
-
-    @Property("createdAt")
-    Date createdAt;
-
-    //Lifecycle methods -- Pre/PostLoad, Pre/PostPersist...
-    @PostLoad
-    void postLoad(DBObject dbObj) {
-
-    }
-
-    public ObjectId getId() {
-        return id;
-    }
-
-    public void setId(ObjectId id) {
-        this.id = id;
-    }
-
+    
     public String getPhone() {
         return phone;
     }
@@ -84,6 +63,38 @@ public class Hotspot {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public List<Double> getLoc() {
+        return loc;
+    }
+
+    public void setLoc(List<Double> loc) {
+        this.loc = loc;
     }
 
 }

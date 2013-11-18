@@ -6,9 +6,6 @@ package com.c4a.wisell.models;
 
 import com.mongodb.Mongo;
 import java.net.UnknownHostException;
-import java.util.Date;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.mongodb.morphia.Datastore;
@@ -29,7 +26,7 @@ public class ClientTest {
 
     @Test
     public void testCreateClient() {
-        Key<Client> id = ds.save(new Client("+221-77-942-34-89","1854475558",new Date()));
+        Key<Client> id = ds.save(new Client("+221-77-942-34-89","1854475558"));
         assertNotNull("Error creating client", id); 
     }
 

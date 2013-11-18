@@ -7,7 +7,6 @@ package com.c4a.wisell.models;
 import com.mongodb.Mongo;
 import java.net.UnknownHostException;
 import java.util.Date;
-import java.util.Iterator;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.mongodb.morphia.Datastore;
@@ -32,7 +31,7 @@ public class TransactionTest {
         Query<Client> qc = ds.find(Client.class).limit(1);
         Query<Hotspot> qh = ds.find(Hotspot.class).limit(1);
         //Client client = qc.asList().get(0);
-        Key<Transaction> id = ds.save(new Transaction(qc.getKey(),qh.getKey(), 858.58, new Date(), new Date()));
+        Key<Transaction> id = ds.save(new Transaction(qc.getKey(),qh.getKey(), 1259.58, new Date()));
         assertNotNull(id);
     }
     

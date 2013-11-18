@@ -11,6 +11,7 @@ import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Indexed;
 import org.mongodb.morphia.annotations.PostLoad;
+import org.mongodb.morphia.annotations.PrePersist;
 import org.mongodb.morphia.annotations.Property;
 
 /**
@@ -18,38 +19,23 @@ import org.mongodb.morphia.annotations.Property;
  * @author papesdiop
  */
 @Entity("connections")
-public class Connection {
+public class Connection extends BaseEntity {
 
     public Connection() {
+        
     }
 
-    // auto-generated, if not set (see ObjectId)
-    @Id
-    private ObjectId id;
+    public Connection(Key<Client> client, Key<Hotspot> hotspot) {
+        this.client = client;
+        this.hotspot = hotspot;
+    }
 
     private Key<Client> client;
     private Key<Hotspot> hotspot;
     private Boolean status = false; // if client is connected or disconnected from hotspot
 
-    @Property("createdAt")
-    private Date createdAt;
-
     @Property("dateClient")
     private Date dateClient = null;
-
-    //Lifecycle methods -- Pre/PostLoad, Pre/PostPersist...
-    @PostLoad
-    void postLoad(DBObject dbObj) {
-
-    }
-
-    public ObjectId getId() {
-        return id;
-    }
-
-    public void setId(ObjectId id) {
-        this.id = id;
-    }
 
     public Key<Client> getClient() {
         return client;
@@ -73,14 +59,6 @@ public class Connection {
 
     public void setStatus(Boolean status) {
         this.status = status;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
     }
 
     public Date getDateClient() {
