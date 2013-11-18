@@ -21,6 +21,16 @@ import org.mongodb.morphia.annotations.Property;
 @Entity("hotspots")
 public class Hotspot {
 
+    public Hotspot() {
+    }
+
+    public Hotspot(String phone, String imei, Date createdAt) {
+        this.phone = phone;
+        this.imei = imei;
+        this.createdAt = createdAt;
+    }
+    
+
     @Id
     private ObjectId id;
 

@@ -12,20 +12,32 @@ import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Indexed;
 import org.mongodb.morphia.annotations.PostLoad;
 import org.mongodb.morphia.annotations.Property;
+import org.mongodb.morphia.annotations.Reference;
 
 /**
  *
  * @author papesdiop
  */
-@Entity("transactions")
+@Entity(value="transactions", noClassnameStored=true)
 public class Transaction {
 
+    public Transaction() {
+    }
+
+    public Transaction(Key<Client> client, Key<Hotspot> hotspot, Double amount, Date createdAt, Date dateClient) {
+        this.client = client;
+        this.hotspot = hotspot;
+        this.amount = amount;
+        this.createdAt = createdAt;
+        this.dateClient = dateClient;
+    }
+
+    
+    
     @Id
-    private ObjectId id;
-
-    @Indexed
-    private String phone; // indexed phone field for better performance
-
+    private ObjectId id;   
+    
+    //@Reference Client clientRef;
     private Key<Client> client;
     private Key<Hotspot> hotspot;
     private Double amount;
@@ -47,14 +59,6 @@ public class Transaction {
 
     public void setId(ObjectId id) {
         this.id = id;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public Key<Client> getClient() {

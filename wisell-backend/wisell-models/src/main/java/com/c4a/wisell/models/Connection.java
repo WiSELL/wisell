@@ -20,6 +20,9 @@ import org.mongodb.morphia.annotations.Property;
 @Entity("connections")
 public class Connection {
 
+    public Connection() {
+    }
+
     // auto-generated, if not set (see ObjectId)
     @Id
     private ObjectId id;

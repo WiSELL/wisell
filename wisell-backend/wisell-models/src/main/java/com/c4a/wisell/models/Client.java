@@ -19,6 +19,15 @@ import org.mongodb.morphia.annotations.Property;
 @Entity("clients")
 public class Client {
 
+    public Client() {
+    }
+
+    public Client(String phone, String imei, Date createdAt) {
+        this.phone = phone;
+        this.imei = imei;
+        this.createdAt = createdAt;
+    }
+
     // auto-generated, if not set (see ObjectId)
     @Id
     private ObjectId id;
@@ -26,7 +35,7 @@ public class Client {
     @Indexed
     private String phone; // indexed phone field for better performance
 
-        private String imei;
+    private String imei;
     private String name = null;
     private String email = null;
     @Property(value = "createdAt")
