@@ -9,5 +9,6 @@
   <modules>
     <module>wisell-data</module>
     <module>wisell-api</module>
+    <module>wisell-models</module>
   </modules>
 </project>
