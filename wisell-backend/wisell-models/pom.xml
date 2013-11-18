@@ -17,11 +17,13 @@
     </properties>
     <dependencies>
       
+        
         <dependency>
-            <groupId>com.google.code</groupId>
+            <groupId>org.mongodb.morphia</groupId>
             <artifactId>morphia</artifactId>
-            <version>0.91</version>
-        </dependency>            
+            <version>0.105</version>
+        </dependency> 
+                   
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
