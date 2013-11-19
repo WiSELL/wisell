@@ -8,6 +8,7 @@ import java.util.Date;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.PostLoad;
+import org.mongodb.morphia.annotations.PostPersist;
 import org.mongodb.morphia.annotations.PrePersist;
 import org.mongodb.morphia.annotations.Property;
 
@@ -22,15 +23,19 @@ public abstract class BaseEntity {
     @Property(value = "createdDate")
     Date createdDate = null;
     
-    @PrePersist
-    void prePersist(){
-        this.createdDate = new Date();
-    }
+    
     
     //Lifecycle methods -- Pre/PostLoad, Pre/PostPersist...
+    @PrePersist
+    void prePersist(DBObject dbObj){
+        this.createdDate = new Date();
+        
+    }
+    
     @PostLoad
+    @PostPersist
     void postLoad(DBObject dbObj) {
-
+        System.out.println("postPersist object " + dbObj);
     }
 
     
