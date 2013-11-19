@@ -3,17 +3,10 @@
  */
 package com.c4a.wisell.models;
 
-import com.mongodb.DBObject;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Indexed;
-import org.mongodb.morphia.annotations.PostLoad;
-import org.mongodb.morphia.annotations.PrePersist;
-import org.mongodb.morphia.annotations.Property;
 
 /**
  *
@@ -28,6 +21,13 @@ public class Hotspot extends BaseEntity{
     public Hotspot(String phone, String imei) {
         this.phone = phone;
         this.imei = imei;
+    }
+    
+    public Hotspot(String phone, String imei, String name, String email) {
+        this.phone = phone;
+        this.imei = imei;
+        this.name = name;
+        this.email = email;
     }
 
 

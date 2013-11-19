@@ -21,6 +21,15 @@ public class Client extends BaseEntity{
         this.imei = imei;
     }
 
+    public Client(String phone, String imei, String name, String email) {
+        this.phone = phone;
+        this.imei = imei;
+        this.name = name;
+        this.email = email;
+    }
+    
+    
+
     @Indexed
     private String phone; // indexed phone field for better performance
 
