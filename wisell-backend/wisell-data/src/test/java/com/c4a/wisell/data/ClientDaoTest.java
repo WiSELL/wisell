@@ -6,6 +6,7 @@
 
 package com.c4a.wisell.data;
 
+import com.c4a.wisell.data.repositories.ClientDao;
 import com.c4a.wisell.models.Client;
 import org.junit.Test;
 import static org.junit.Assert.*;

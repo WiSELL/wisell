@@ -37,7 +37,7 @@ public abstract class TestBase {
 
     @Before
     public void setUp() {
-        setDb(getMongo().getDB("elk-test"));
+        setDb(getMongo().getDB("wisell-test"));
         setDs(getMorphia().createDatastore(getMongo(), getDb().getName()));
         setAds((AdvancedDatastore) getDs());
     }

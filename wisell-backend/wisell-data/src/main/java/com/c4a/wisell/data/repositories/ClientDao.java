@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Coders4Africa Senegal copyright2013
  */
-
-package com.c4a.wisell.data;
+package com.c4a.wisell.data.repositories;
 
 import com.c4a.wisell.models.Client;
 import java.util.List;
@@ -22,7 +19,7 @@ import org.bson.types.ObjectId;
 public class ClientDao extends BasicDAO<Client, ObjectId> {
 
        public ClientDao(Mongo mongo, Morphia morphia) {
-              super(mongo, morphia, "elk");
+              super(mongo, morphia, "wisell");
        }
        
        public ClientDao(Mongo mongo, Morphia morphia, String dbName) {
