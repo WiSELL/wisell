@@ -39,7 +39,8 @@ public class Hotspot extends BaseEntity{
     private String address = null;
     private String tel = null;
     private List<Double> loc = new ArrayList<Double>(); // for geolocation
-
+    private Boolean shareConnection = true; //Allow to share Bandwith
+    private Integer maxConnection = 5; // maximal simultaneous connection allowed
     
     public String getPhone() {
         return phone;
@@ -95,6 +96,22 @@ public class Hotspot extends BaseEntity{
 
     public void setLoc(List<Double> loc) {
         this.loc = loc;
+    }
+
+    public Boolean isShareConnection() {
+        return shareConnection;
+    }
+
+    public void setShareConnection(Boolean shareConnection) {
+        this.shareConnection = shareConnection;
+    }
+
+    public Integer getMaxConnection() {
+        return maxConnection;
+    }
+
+    public void setMaxConnection(Integer maxConnection) {
+        this.maxConnection = maxConnection;
     }
 
 }
