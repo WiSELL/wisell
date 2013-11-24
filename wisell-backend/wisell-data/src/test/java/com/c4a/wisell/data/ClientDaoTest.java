@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  */
 public class ClientDaoTest extends TestBase{
     
-    ClientDao dao = new ClientDao(getMongo(), getMorphia(), getDb().getName());
+    ClientDao dao = new ClientDao();
     
     public ClientDaoTest() {
         super();
@@ -26,7 +26,7 @@ public class ClientDaoTest extends TestBase{
 
     @Test
     public void testCreateClient() {
-        assertNotNull(dao.save(new Client("+221-77-640-84-20","1854475558")));
+        assertNotNull(dao.save(new Client("101-77-640-84-20","1854475558")));
     }
     
 }
