@@ -11,13 +11,14 @@ import com.c4a.wisell.models.Connection;
 import com.c4a.wisell.models.Hotspot;
 import java.lang.reflect.Array;
 import java.util.List;
+import javax.inject.Inject;
 
 /**
  *
  * @author papesdiop
  */
 public class ClientImpl implements IClient {
-    ClientDao dao = new ClientDao();//TODO use CDI
+    @Inject ClientDao dao;//= new ClientDao();//TODO use CDI
 
     public void connect(final Connection connection) {
         connection.setStatus(Boolean.TRUE);// ensure it's a true status or return an error

@@ -10,13 +10,14 @@ import com.c4a.wisell.models.Client;
 import com.c4a.wisell.models.Hotspot;
 import com.c4a.wisell.models.Transaction;
 import java.util.List;
-
+import javax.inject.Inject;
 /**
  *
  * @author papesdiop
  */
 public class TransactionImpl implements ITransaction{
-    TransactionDao dao = new TransactionDao();
+    
+    @Inject TransactionDao dao; //= new TransactionDao();
 
     public void buyingPass(Client client) {
         throw new UnsupportedOperationException("Not supported yet."); 
