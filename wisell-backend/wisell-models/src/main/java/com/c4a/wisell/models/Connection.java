@@ -19,9 +19,10 @@ public class Connection extends BaseEntity {
         
     }
 
-    public Connection(Key<Client> client, Key<Hotspot> hotspot) {
+    public Connection(Key<Client> client, Key<Hotspot> hotspot, Boolean status) {
         this.client = client;
         this.hotspot = hotspot;
+        this.status = status;
     }
 
     private Key<Client> client;

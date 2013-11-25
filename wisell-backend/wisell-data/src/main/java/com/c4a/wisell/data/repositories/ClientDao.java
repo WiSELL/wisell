@@ -4,7 +4,6 @@
 package com.c4a.wisell.data.repositories;
 
 import com.c4a.wisell.models.Client;
-import com.mongodb.DB;
 import java.util.List;
 
 import org.bson.types.ObjectId;

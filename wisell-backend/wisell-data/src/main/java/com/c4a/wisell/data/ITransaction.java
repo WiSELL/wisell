@@ -18,10 +18,6 @@ public interface ITransaction {
     When a client hotspot request for a buying pass
     */
     public void buyingPass(Client client);
-    /*
-    When a client hotspot request for a buying credit
-    */
-    public void buyingCredit(Client client);
     
     /*
     When a client hotspot request for a buying pass
@@ -41,16 +37,16 @@ public interface ITransaction {
     /**
      * Return transactions list for client
      * @param client
-     * @param maxResults
+     * @param maxResult
      * @return 
      */
-    public List<Transaction> getTransactions(Client client, Integer maxResults);
+    public List<Transaction> getTransactions(Client client, Integer maxResult);
     
     /**
      * Return transactions list for a hotspot
      * @param hotspot
-     * @param maxResults
+     * @param maxResult
      * @return 
      */
-    public List<Transaction> getTransactions(Hotspot hotspot, Integer maxResults);
+    public List<Transaction> getTransactions(Hotspot hotspot, Integer maxResult);
 }

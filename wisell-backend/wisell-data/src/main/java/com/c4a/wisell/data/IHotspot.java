@@ -32,17 +32,5 @@ public interface IHotspot {
      * @param hotspot 
      */
     public void update(Hotspot hotspot);
-    /**
-     * Buying credit from the Telco, The Hotspot have an account in WiSell
-     * @param hotspot
-     * @param amount 
-     */
-    public void buyingCredit(Hotspot hotspot, Double amount);
-     /**
-     * Buying internet pass from the Telco, The Hotspot have an account in WiSell
-     * @param hotspot
-     * @param amount 
-     */
-    public void buyingPass(Hotspot hotspot, Double amount);
     
 }

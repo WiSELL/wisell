@@ -38,6 +38,7 @@ public interface IClient {
      * @param connection 
      */
     public void disconnect(Connection connection);
+ 
     /**
      * 
      * @param ClientPosition the geolocation position of client
