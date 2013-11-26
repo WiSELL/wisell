@@ -4,6 +4,7 @@
 
 package com.c4a.wisell.models;
 
+import wisell.models.Hotspot;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.mongodb.morphia.Key;

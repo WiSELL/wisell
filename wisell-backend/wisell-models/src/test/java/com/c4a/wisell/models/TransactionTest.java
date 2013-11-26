@@ -4,6 +4,9 @@
 
 package com.c4a.wisell.models;
 
+import wisell.models.Client;
+import wisell.models.Transaction;
+import wisell.models.Hotspot;
 import java.util.Date;
 import org.junit.Test;
 import static org.junit.Assert.*;
