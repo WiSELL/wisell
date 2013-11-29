@@ -5,6 +5,7 @@ package wisell.data.repo.impl;
 
 import wisell.models.Client;
 import java.util.List;
+import javax.enterprise.inject.Default;
 
 import org.bson.types.ObjectId;
 import wisell.data.repo.IClientRepository;
@@ -13,6 +14,7 @@ import wisell.data.repo.IClientRepository;
  *
  * @author papesdiop
  */
+@Default
 public class ClientRepository extends AbstractRepository<Client, ObjectId> implements IClientRepository<Client, ObjectId>  {
 
     public List<Client> findAll() {

@@ -3,7 +3,6 @@
  */
 package wisell.data.repo;
 
-import wisell.data.repo.impl.ClientRepository;
 import wisell.models.Client;
 import javax.inject.Inject;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -14,6 +13,7 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
+import wisell.data.repo.impl.ClientRepository;
 
 /**
  *
@@ -30,7 +30,7 @@ public class ClientRepositoryTest extends TestBase {
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
-    @Inject ClientRepository dao;// = new ClientRepository();
+    @Inject IClientRepository dao;
 
     public ClientRepositoryTest() {
         super();
@@ -39,7 +39,7 @@ public class ClientRepositoryTest extends TestBase {
 
     @Test
     public void testCreateClient() {
-        assertNotNull(dao.save(new Client("101-77-640-84-20", "1854475558","With CDI and Arquillian", "papesdiop@gmail.com")));
+        assertNotNull(dao.save(new Client("001-77-640-84-20", "1854475558","With CDI and Arquillian", "papesdiop@gmail.com")));
     }
 
 }

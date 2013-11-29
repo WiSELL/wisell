@@ -4,40 +4,42 @@
 
 package wisell.data.impl;
 
+import javax.inject.Inject;
 import wisell.data.IHotspot;
-import wisell.data.repo.impl.HotspotRepository;
 import wisell.models.Connection;
 import wisell.models.Hotspot;
 import org.mongodb.morphia.Key;
+import wisell.data.repo.IHotspotRepository;
 
 /**
  *
  * @author papesdiop
  */
 public class HotspotImpl implements IHotspot{
-    HotspotRepository dao = new HotspotRepository();
     
-    public void register(Hotspot hotspot) {
+    @Inject IHotspotRepository dao;
+    
+    public void register(final Hotspot hotspot) {
         dao.save(hotspot);
     }
 
-    public void unregister(Hotspot hotspot) {
+    public void unregister(final Hotspot hotspot) {
         dao.delete(hotspot);
     }
 
-    public void start(Hotspot hotspot) {
+    public void start(final Hotspot hotspot) {
         Key<Hotspot> key= new Key<Hotspot>(Hotspot.class, hotspot.getId());
         Connection connection = new Connection(null, key, Boolean.TRUE);
         dao.getDatastore().save(connection);
     }
 
-    public void stop(Hotspot hotspot) {
+    public void stop(final Hotspot hotspot) {
         Key<Hotspot> key= new Key<Hotspot>(Hotspot.class, hotspot.getId());
         Connection connection = new Connection(null, key, Boolean.FALSE);
         dao.getDatastore().save(connection); 
     }
 
-    public void update(Hotspot hotspot) {
+    public void update(final Hotspot hotspot) {
         dao.save(hotspot);
     }
     

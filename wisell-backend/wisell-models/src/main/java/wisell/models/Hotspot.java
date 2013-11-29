@@ -29,6 +29,15 @@ public class Hotspot extends BaseEntity{
         this.name = name;
         this.email = email;
     }
+    
+    public Hotspot(String phone, String imei, String name, String email, String password, String securityKey) {
+        this.phone = phone;
+        this.imei = imei;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.securityKey = securityKey;
+    }
 
 
     @Indexed
@@ -41,6 +50,8 @@ public class Hotspot extends BaseEntity{
     private List<Double> loc = new ArrayList<Double>(); // for geolocation
     private Boolean shareConnection = true; //Allow to share Bandwith
     private Integer maxConnection = 5; // maximal simultaneous connection allowed
+    private String password = null; // pass code for starting Hotspot or view hotspot transaction or for any others actions
+    private String securityKey = null; // for encrypted transactions between wisell and telco
     
     public String getPhone() {
         return phone;
@@ -112,6 +123,22 @@ public class Hotspot extends BaseEntity{
 
     public void setMaxConnection(Integer maxConnection) {
         this.maxConnection = maxConnection;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getSecurityKey() {
+        return securityKey;
+    }
+
+    public void setSecurityKey(String securityKey) {
+        this.securityKey = securityKey;
     }
 
 }

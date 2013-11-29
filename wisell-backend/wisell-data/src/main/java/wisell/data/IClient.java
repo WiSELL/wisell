@@ -29,10 +29,16 @@ public interface IClient {
      */
     public void unregister(Client client);
      /**
-     *  Connection of client HotSpot
+     *  Tracking Connection of client to HotSpot
      * @param connection 
      */
     public void connect(Connection connection);
+    /**
+     * Tracking connection of Client to Hotspot
+     * @param client
+     * @param hotspot 
+     */
+    public void connect(Client client, Hotspot hotspot);
     /**
      *  Disconnection of client HotSpot
      * @param connection 

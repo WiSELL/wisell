@@ -8,6 +8,7 @@ import com.mongodb.DB;
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import java.net.UnknownHostException;
 import org.mongodb.morphia.AdvancedDatastore;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
@@ -25,7 +26,7 @@ class DBParams {
     private final Morphia morphia = new Morphia();
     private static final DBParams instance = new DBParams();
     
-    private final String DB_NAME = "wisell-test";
+    private final String DB_NAME = System.getProperty("WISELL_USER", "wisell-test");
     private final String USER = System.getProperty("WISELL_USER", "wisell_db_user");
     private final String PASSWORD = System.getProperty("WISELL_PASSWORD", "wisell_db_password");
 
@@ -39,7 +40,7 @@ class DBParams {
             db = mongo.getDB(DB_NAME);
             ds = morphia.createDatastore(mongo, db.getName());
             ads = (AdvancedDatastore) ds;
-        } catch (Exception e) {
+        } catch (UnknownHostException e) {
             throw new RuntimeException(e);
         }
     }

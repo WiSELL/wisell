@@ -2,9 +2,8 @@
  * Coders4Africa Senegal copyright2013
  */
 
-package com.c4a.wisell.models;
+package wisell.models;
 
-import wisell.models.Client;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.mongodb.morphia.Key;

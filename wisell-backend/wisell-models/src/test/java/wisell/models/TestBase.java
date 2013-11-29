@@ -1,7 +1,7 @@
 /*
  * Coders4Africa Senegal copyright2013
  */
-package com.c4a.wisell.models;
+package wisell.models;
 
 import com.mongodb.DB;
 import com.mongodb.Mongo;

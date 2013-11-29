@@ -28,6 +28,7 @@ public class Connection extends BaseEntity {
     private Key<Client> client;
     private Key<Hotspot> hotspot;
     private Boolean status = false; // if client is connected or disconnected from hotspot
+    private Double bandwith = null; 
 
     @Property("dateClient")
     private Date dateClient = null;
@@ -62,6 +63,14 @@ public class Connection extends BaseEntity {
 
     public void setDateClient(Date dateClient) {
         this.dateClient = dateClient;
+    }
+
+    public Double getBandwith() {
+        return bandwith;
+    }
+
+    public void setBandwith(Double bandwith) {
+        this.bandwith = bandwith;
     }
 
 }

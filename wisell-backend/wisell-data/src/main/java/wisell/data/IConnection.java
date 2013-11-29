@@ -34,4 +34,11 @@ public interface IConnection {
      * @return 
      */
     public List<Connection> getConnectionHistory(Hotspot hotspot, Integer maxResult);
+    /**
+     * Notify end-users to get messages on app screen to let them when a hotspot is in range
+     *      @TODO How it can be implemented? Does it need to act with back-end?
+     * @param client
+     * @return 
+     */
+    public List<Hotspot> notify(Client client);
 }

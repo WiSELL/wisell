@@ -17,25 +17,25 @@ import javax.inject.Inject;
  */
 public class TransactionImpl implements ITransaction{
     
-    @Inject TransactionRepository dao; //= new TransactionRepository();
+    @Inject TransactionRepository dao;
 
-    public void buyingPass(Client client) {
+    public void buyingPass(final Client client) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 
-    public void buyingPass(Hotspot hotspot) {
+    public void buyingPass(final Hotspot hotspot) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 
-    public void buyingCredit(Hotspot hotspot) {
+    public void buyingCredit(final Hotspot hotspot) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 
-    public void debitClient(Transaction transaction, Double delay) {
+    public void debitClient(final Transaction transaction, final Double delay) {
         dao.save(transaction); 
     }
 
-    public List<Transaction> getTransactions(Client client, Integer maxResult) {
+    public List<Transaction> getTransactions(final Client client, final Integer maxResult) {
         return dao.getDatastore()
                 .find(Transaction.class)
                 .filter("client =", client.getId())
@@ -43,7 +43,7 @@ public class TransactionImpl implements ITransaction{
                 .asList();
     }
 
-    public List<Transaction> getTransactions(Hotspot hotspot, Integer maxResult) {
+    public List<Transaction> getTransactions(final Hotspot hotspot, final Integer maxResult) {
         return dao.getDatastore()
                 .find(Transaction.class)
                 .filter("client =", hotspot.getId())
