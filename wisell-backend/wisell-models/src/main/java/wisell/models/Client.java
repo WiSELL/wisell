@@ -3,6 +3,9 @@
  */
 package wisell.models;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Indexed;
 
@@ -11,6 +14,8 @@ import org.mongodb.morphia.annotations.Indexed;
  * @author papesdiop
  */
 @Entity(value="clients", noClassnameStored=true)
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Client extends BaseEntity{
 
     public Client() {

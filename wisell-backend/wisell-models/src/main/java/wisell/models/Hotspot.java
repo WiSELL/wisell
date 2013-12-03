@@ -5,6 +5,9 @@ package wisell.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Indexed;
 
@@ -13,6 +16,8 @@ import org.mongodb.morphia.annotations.Indexed;
  * @author papesdiop
  */
 @Entity(value="hotspots", noClassnameStored=true)
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Hotspot extends BaseEntity{
 
     public Hotspot() {

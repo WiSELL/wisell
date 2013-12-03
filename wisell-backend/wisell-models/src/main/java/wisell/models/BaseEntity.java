@@ -5,6 +5,9 @@ package wisell.models;
 
 import com.mongodb.DBObject;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.PostLoad;
@@ -16,6 +19,8 @@ import org.mongodb.morphia.annotations.Property;
  *
  * @author papesdiop
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public abstract class BaseEntity {
     // auto-generated, if not set (see ObjectId)
     @Id
