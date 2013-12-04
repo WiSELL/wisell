@@ -34,7 +34,7 @@ class DBParams {
         return instance;
     }
 
-    public DBParams() {
+    private DBParams() {
         try {
             mongo = new MongoClient(new MongoClientURI(System.getProperty("MONGO_URI", "mongodb://localhost:27017")));
             db = mongo.getDB(DB_NAME);
