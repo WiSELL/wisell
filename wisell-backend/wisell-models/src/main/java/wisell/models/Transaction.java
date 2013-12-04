@@ -4,8 +4,6 @@
 package wisell.models;
 
 import java.util.Date;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.mongodb.morphia.Key;
 import org.mongodb.morphia.annotations.Entity;
@@ -17,7 +15,7 @@ import org.mongodb.morphia.annotations.Property;
  */
 @Entity(value="transactions", noClassnameStored=true)
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class Transaction extends BaseEntity {
 
     public Transaction() {

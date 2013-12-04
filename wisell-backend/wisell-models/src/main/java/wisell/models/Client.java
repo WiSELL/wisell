@@ -3,8 +3,6 @@
  */
 package wisell.models;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Indexed;
@@ -15,7 +13,7 @@ import org.mongodb.morphia.annotations.Indexed;
  */
 @Entity(value="clients", noClassnameStored=true)
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class Client extends BaseEntity{
 
     public Client() {
@@ -33,11 +31,8 @@ public class Client extends BaseEntity{
         this.email = email;
     }
     
-    
-
     @Indexed
     private String phone; // indexed phone field for better performance
-
     private String imei;
     private String name = null;
     private String email = null;
