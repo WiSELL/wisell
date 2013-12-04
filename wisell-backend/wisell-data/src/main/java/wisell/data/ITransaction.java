@@ -20,7 +20,7 @@ public interface ITransaction {
     public void buyingPass(Client client);
     
     /*
-    When a client hotspot request for a buying pass
+    When a hotspot request for a buying pass
     */
     public void buyingPass(Hotspot hotspot);
     /*

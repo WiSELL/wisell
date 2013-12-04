@@ -8,7 +8,6 @@ import wisell.data.IClient;
 import wisell.models.Client;
 import wisell.models.Connection;
 import wisell.models.Hotspot;
-import java.lang.reflect.Array;
 import java.util.List;
 import javax.inject.Inject;
 import org.mongodb.morphia.Key;
@@ -46,9 +45,10 @@ public class ClientImpl implements IClient {
         dao.delete(client);// TODO remove it explicitly or add status unregistered
     }
     
-    public List<Hotspot> searchingHotspot(final Array ClientPosition, final Double maxDistance) {
+    public List<Hotspot> searchingHotspot(final Double latitude, final Double longitude, final Double maxDistance) {
         return dao.getDatastore() //TODO A geolocation request needed
                 .find(Hotspot.class)
+                .field("Location").near(latitude, longitude, maxDistance)
                 .limit(10)
                 .asList();
     }
