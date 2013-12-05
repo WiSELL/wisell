@@ -19,11 +19,11 @@ import javax.ws.rs.core.Application;
 @ApplicationPath("api")
 public class WiSellApplication extends Application {
 
-    @Override
+   /* @Override
     public Set<Class<?>> getClasses() {
         final Set<Class<?>> classes = new HashSet<Class<?>>();
         classes.add(ClientRest.class);
 
         return classes;
-    }
+    }*/
 }
