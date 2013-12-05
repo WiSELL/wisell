@@ -19,6 +19,10 @@ public class TransactionImpl implements ITransaction{
     
     @Inject TransactionRepository dao;
 
+    public void buyingPass(final String imei) {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+    
     public void buyingPass(final Client client) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
@@ -28,6 +32,10 @@ public class TransactionImpl implements ITransaction{
     }
 
     public void buyingCredit(final Hotspot hotspot) {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+    
+     public void buyingCredit(final String imei) {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 
@@ -47,6 +55,15 @@ public class TransactionImpl implements ITransaction{
         return dao.getDatastore()
                 .find(Transaction.class)
                 .filter("client =", hotspot.getId())
+                .limit(maxResult)
+                .asList();
+    }
+    
+    public List<Transaction> getTransactions(String imei, Integer maxResult){
+        return dao.getDatastore()
+                .find(Transaction.class)
+                .field("client").equal(imei)
+                .field("hotspot").equal(imei)//TODO
                 .limit(maxResult)
                 .asList();
     }

@@ -31,6 +31,13 @@ public class ClientImpl implements IClient {
         Connection connection = new Connection(kClient, kHotspot, Boolean.TRUE);
         dao.getDatastore().save(connection);
     }
+    
+    public void connect(final String phone, final String hotspotId) {
+        Key<Client> kClient = new Key<Client>(Client.class, phone);
+        Key<Hotspot> kHotspot = new Key<Hotspot>(Hotspot.class, hotspotId);
+        Connection connection = new Connection(kClient, kHotspot, Boolean.TRUE);
+        dao.getDatastore().save(connection);
+    }
 
     public void disconnect(final Connection connection) {
         connection.setStatus(Boolean.FALSE);// ensure it's a false status

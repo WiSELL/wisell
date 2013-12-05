@@ -17,8 +17,8 @@ public interface ITransaction {
     /*
     When a client hotspot request for a buying pass
     */
+    public void buyingPass(String imei);
     public void buyingPass(Client client);
-    
     /*
     When a hotspot request for a buying pass
     */
@@ -27,6 +27,7 @@ public interface ITransaction {
     When a client hotspot request for a buying credit
     */
     public void buyingCredit(Hotspot hotspot);
+    public void buyingCredit(String imei);
     /**
      * Instruct Telco to deduct @transaction.amount from client after each @delay
      * @param transaction
@@ -49,4 +50,11 @@ public interface ITransaction {
      * @return 
      */
     public List<Transaction> getTransactions(Hotspot hotspot, Integer maxResult);
+    /**
+     * Return transactions list for client or hotspot
+     * @param imei
+     * @param maxResult
+     * @return 
+     */
+    public List<Transaction> getTransactions(String imei, Integer maxResult);
 }

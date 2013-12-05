@@ -1,7 +1,6 @@
 /*
  * Coders4Africa Senegal copyright2013
  */
-
 package wisell.data.impl;
 
 import javax.inject.Inject;
@@ -15,10 +14,11 @@ import wisell.data.repo.IHotspotRepository;
  *
  * @author papesdiop
  */
-public class HotspotImpl implements IHotspot{
-    
-    @Inject IHotspotRepository dao;
-    
+public class HotspotImpl implements IHotspot {
+
+    @Inject
+    IHotspotRepository dao;
+
     public void register(final Hotspot hotspot) {
         dao.save(hotspot);
     }
@@ -28,19 +28,31 @@ public class HotspotImpl implements IHotspot{
     }
 
     public void start(final Hotspot hotspot) {
-        Key<Hotspot> key= new Key<Hotspot>(Hotspot.class, hotspot.getId());
+        Key<Hotspot> key = new Key<Hotspot>(Hotspot.class, hotspot.getId());
         Connection connection = new Connection(null, key, Boolean.TRUE);
         dao.getDatastore().save(connection);
     }
 
     public void stop(final Hotspot hotspot) {
-        Key<Hotspot> key= new Key<Hotspot>(Hotspot.class, hotspot.getId());
+        Key<Hotspot> key = new Key<Hotspot>(Hotspot.class, hotspot.getId());
         Connection connection = new Connection(null, key, Boolean.FALSE);
-        dao.getDatastore().save(connection); 
+        dao.getDatastore().save(connection);
+    }
+
+    public void start(final String hotspot) {
+        Key<Hotspot> key = new Key<Hotspot>(Hotspot.class, hotspot);
+        Connection connection = new Connection(null, key, Boolean.TRUE);
+        dao.getDatastore().save(connection);
+    }
+
+    public void stop(final String hotspot) {
+        Key<Hotspot> key = new Key<Hotspot>(Hotspot.class, hotspot);
+        Connection connection = new Connection(null, key, Boolean.FALSE);
+        dao.getDatastore().save(connection);
     }
 
     public void update(final Hotspot hotspot) {
         dao.save(hotspot);
     }
-    
+
 }

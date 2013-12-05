@@ -44,6 +44,13 @@ public interface IClient {
      * @param hotspot
      */
     public void connect(Client client, Hotspot hotspot);
+     /**
+     * Tracking connection of Client to Hotspot
+     *
+     * @param phone
+     * @param hotspotId
+     */
+    public void connect(String phone, String hotspotId);
 
     /**
      * Disconnection of client HotSpot

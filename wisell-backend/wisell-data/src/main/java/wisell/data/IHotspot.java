@@ -27,6 +27,9 @@ public interface IHotspot {
      */
     public void start(Hotspot hotspot);
     public void stop(Hotspot hotspot);
+    
+    public void start(String hotspot);
+    public void stop(String hotspot);
     /**
      * Updating hotspot settings (share bandwith, maximal simultaneous connections, etc.)
      * @param hotspot 

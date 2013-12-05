@@ -5,7 +5,6 @@ package wisell.models;
 
 import com.mongodb.DBObject;
 import java.util.Date;
-import javax.xml.bind.annotation.XmlTransient;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.PostLoad;
 import org.mongodb.morphia.annotations.PostPersist;
@@ -20,7 +19,6 @@ import org.mongodb.morphia.annotations.Property;
 public abstract class BaseEntity {
     // auto-generated, if not set (see ObjectId)
     @Id
-    @XmlTransient
     protected String id;
     @Property(value = "createdDate")
     protected Date createdDate = null;
