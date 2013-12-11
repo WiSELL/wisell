@@ -19,7 +19,6 @@ import javax.ws.rs.core.Application;
 @ApplicationPath("api")
 //@ApplicationPath("api/v1") //for API versioning
 public class WiSellApplication extends Application {
-
     @Override
     public Set<Class<?>> getClasses() {
         final Set<Class<?>> classes = new HashSet<Class<?>>();
