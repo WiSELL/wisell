@@ -5,10 +5,11 @@
   <artifactId>wisell-backend</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>wisell-backend</name>
+  <name>WiSell Backend API Application Root</name>
   <modules>
     <module>wisell-data</module>
     <module>wisell-api</module>
     <module>wisell-models</module>
+    <module>wisell-oauth</module>
   </modules>
 </project>

@@ -10,7 +10,7 @@
     <groupId>com.c4a.wisell</groupId>
     <artifactId>wisell-data</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>wisell-data</name>
+    <name>WiSell Data Access Layer</name>
     <url>http://maven.apache.org</url>
     
     <properties> 

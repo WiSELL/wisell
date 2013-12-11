@@ -10,7 +10,7 @@
     <groupId>com.c4a.wisell</groupId>
     <artifactId>wisell-models</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>wisell-models</name>
+    <name>WiSell Entities models</name>
     <url>http://maven.apache.org</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
