@@ -10,11 +10,11 @@ import org.mongodb.morphia.annotations.Reference;
  * @author yazid
  *
  */
-@Entity(value="transactions")
+@Entity(value="transactions", noClassnameStored=true)
 public class Transaction extends BaseEntity{
 	@Reference(lazy=true)
 	private Client client;
-	private String clientPhoneNumber;
+	//private String clientPhoneNumber;
 	@Reference(lazy=true)
 	private Hotspot hotspot;
 	private BigDecimal cost;//cost is calculated by the charging engine
@@ -38,33 +38,20 @@ public class Transaction extends BaseEntity{
 		this.hotspot = hotspot;
 		this.trafficVolume = trafficVolume;
 		this.duration = duration;
-	}
-
-	public Transaction(String clientPhoneNumber, Double trafficVolume,
-			Date startDate, Date endDate) {
+	}	
+	
+	public Transaction(Client client, Hotspot hotspot,
+			BigDecimal resellerRevenue, Double trafficVolume, Date startDate,
+			Date endDate) {
 		super();
-		this.clientPhoneNumber = clientPhoneNumber;
+		this.client = client;
+		this.hotspot = hotspot;
+		this.resellerRevenue = resellerRevenue;
 		this.trafficVolume = trafficVolume;
 		this.startDate = startDate;
 		this.endDate = endDate;
 	}
 
-
-	/**
-	 * @return the clientPhoneNumber
-	 */
-	public String getClientPhoneNumber() {
-		return clientPhoneNumber;
-	}
-
-	/**
-	 * @param clientPhoneNumber the clientPhoneNumber to set
-	 */
-	public void setClientPhoneNumber(String clientPhoneNumber) {
-		this.clientPhoneNumber = clientPhoneNumber;
-	}
-
-	
 	/**
 	 * @return the cost
 	 */

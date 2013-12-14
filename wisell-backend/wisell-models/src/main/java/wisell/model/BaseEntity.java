@@ -5,15 +5,9 @@ package wisell.model;
 
 import java.util.Date;
 
-import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Id;
-import org.mongodb.morphia.annotations.PostLoad;
-import org.mongodb.morphia.annotations.PostPersist;
 import org.mongodb.morphia.annotations.PrePersist;
-import org.mongodb.morphia.annotations.PreSave;
 import org.mongodb.morphia.annotations.Property;
-
-import com.mongodb.DBObject;
 
 /**
  * 
@@ -23,7 +17,7 @@ import com.mongodb.DBObject;
 
 public abstract class BaseEntity {	
 	@Id	
-	protected ObjectId id;
+	protected String id;
 	@Property(value = "creationDate")
 	protected Date creationDate = null;
 	protected Date updateDate = null;
@@ -35,32 +29,42 @@ public abstract class BaseEntity {
         this.updateDate = (updateDate == null) ? creationDate : new Date();
 	}
 
-	public ObjectId getId() {
+	
+
+	/**
+	 * @return the id
+	 */
+	public String getId() {
 		return id;
 	}
 
+
+
 	/**
-	 * @param id
-	 *            the id to set
+	 * @param id the id to set
 	 */
-	public void setId(ObjectId id) {
+	public void setId(String id) {
 		this.id = id;
 	}
+
+
 
 	/**
 	 * @return the creationDate
 	 */
-	public Date getCreatedDate() {
+	public Date getCreationDate() {
 		return creationDate;
 	}
 
+
+
 	/**
-	 * @param creationDate
-	 *            the creationDate to set
+	 * @param creationDate the creationDate to set
 	 */
-	public void setCreatedDate(Date createdDate) {
-		this.creationDate = createdDate;
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
 	}
+
 
 	/**
 	 * @return the updateDate

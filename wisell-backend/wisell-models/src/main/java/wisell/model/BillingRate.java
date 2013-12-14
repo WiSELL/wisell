@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import org.mongodb.morphia.annotations.Entity;
 
-@Entity(value="billratings")
+@Entity(value="billingrates", noClassnameStored=true)
 public class BillingRate extends BaseEntity{
 	private BillingMode billingMode;
 	private Double quantity;

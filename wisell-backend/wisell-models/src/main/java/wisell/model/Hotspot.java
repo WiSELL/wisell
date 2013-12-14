@@ -7,7 +7,7 @@ import org.mongodb.morphia.annotations.Indexed;
  * 
  * @author yazid
  */
-@Entity(value="hotspots")
+@Entity(value="hotspots", noClassnameStored=true)
 public class Hotspot extends BaseEntity{
 	@Indexed
 	private String phoneNumber;

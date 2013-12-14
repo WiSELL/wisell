@@ -2,20 +2,21 @@ package wisell.model.event;
 
 import java.util.Date;
 
-import org.bson.types.ObjectId;
-import org.mongodb.morphia.annotations.Id;
+import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Reference;
 
+import wisell.model.BaseEntity;
 import wisell.model.Hotspot;
 
 /**
  * 
  * @author yazid
+ * @author pape
  *
  */
-public class Event{
-	@Id
-	private ObjectId id;
+@Entity(value="events", noClassnameStored=true)
+public class Event extends BaseEntity{
+	
 	private Date occurenceDate;
 	private EventStatus status;
 	private EventType eventType;
@@ -37,20 +38,7 @@ public class Event{
 		this.clientPhoneNumber = clientPhoneNumber;
 		this.hotspot = hotspot;
 	}
-
-	/**
-	 * @return the id
-	 */
-	public ObjectId getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(ObjectId id) {
-		this.id = id;
-	}
+	
 
 	/**
 	 * @return the occurenceDate

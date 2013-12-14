@@ -7,11 +7,13 @@ import org.mongodb.morphia.annotations.Indexed;
  * @author yazid
  *
  */
-@Entity(value="clients")
+@Entity(value="clients", noClassnameStored=true)
 public class Client extends BaseEntity{
 	@Indexed
 	private String phoneNumber;
 	private String phoneIMEI;
+	private String email=null;
+	private String name=null;
 	
 	public Client() {
 		// TODO Auto-generated constructor stub
@@ -50,6 +52,34 @@ public class Client extends BaseEntity{
 	public void setPhoneIMEI(String phoneIMEI) {
 		this.phoneIMEI = phoneIMEI;
 	}
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}	
 	
 	
 }
