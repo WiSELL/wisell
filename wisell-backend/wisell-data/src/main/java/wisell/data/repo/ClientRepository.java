@@ -32,4 +32,9 @@ public class ClientRepository extends AbstractRepository<Client, ObjectId>
 
 	}
 
+	public void update(Client client) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

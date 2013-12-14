@@ -13,18 +13,19 @@ import wisell.model.Transaction;
 public class TransactionRepository extends AbstractRepository<Transaction, ObjectId>  implements ITransactionRepository{
 
 	public Transaction get(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return get(new ObjectId(id));
 	}
 
 	public void recordTransaction(Transaction transaction) {
-		// TODO Auto-generated method stub
+		save(transaction);
 		
 	}
 
 	public void recordTransaction(Hotspot hotspot, Client client,
 			Double duration, Double trafficVolume) {
-		// TODO Auto-generated method stub
+		
+		Transaction transaction = new Transaction(client, hotspot, trafficVolume, duration);
+		save(transaction);
 		
 	}
 

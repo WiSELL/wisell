@@ -1,5 +1,5 @@
 package wisell.model;
 
-public enum ChargingMode {
+public enum BillingMode {
 	DURATION, VOLUME
 }

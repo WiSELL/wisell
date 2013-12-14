@@ -6,34 +6,55 @@ import java.util.List;
 import org.bson.types.ObjectId;
 
 import wisell.data.IChargingRateRepository;
-import wisell.model.ChargingMode;
-import wisell.model.ChargingRate;
+import wisell.model.BillingMode;
+import wisell.model.BillingRate;
 
-public class ChargingRateRepository extends AbstractRepository<ChargingRate, ObjectId> implements IChargingRateRepository {
+public class ChargingRateRepository extends AbstractRepository<BillingRate, ObjectId> implements IChargingRateRepository {
 
-	public String create(ChargingRate chargingRate) {
+	public String create(BillingRate billingRate) {
+		// TODO Auto-generated method stub
+		
+		return null;
+	}
+	
+	public BillingRate get(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ChargingRate get(String id) {
+	public BillingRate findByModeAndQuantity(BillingMode mode, Double quantity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ChargingRate findByModeAndQuantity(ChargingMode mode, Double quantity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public BigDecimal getCost(ChargingMode mode, Double quantity) {
+	public BigDecimal getCost(BillingMode mode, Double quantity) {
 		// TODO Auto-generated method stub
 		return null;
 	}	
 
-	public List<ChargingRate> findAll(int offset, int limit) {
+	public List<BillingRate> findAll(int offset, int limit) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public BigDecimal getCost(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void updateCost(String id, BigDecimal cost) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void update(BillingMode billingMode) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void disable(String id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

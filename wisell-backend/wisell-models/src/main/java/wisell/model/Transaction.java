@@ -3,8 +3,8 @@ package wisell.model;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import org.mongodb.morphia.Key;
 import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Reference;
 /**
  * 
  * @author yazid
@@ -12,22 +12,26 @@ import org.mongodb.morphia.annotations.Entity;
  */
 @Entity(value="transactions")
 public class Transaction extends BaseEntity{
-	private Key<Client> client;
+	@Reference(lazy=true)
+	private Client client;
 	private String clientPhoneNumber;
-	private Key<Hotspot> hotspot;
-	BigDecimal cost;//cost is calculate by the charging engine
-	BigDecimal resellerRevenue; //revenue earn by reseller based on sharing plan	
-	Double trafficVolume;//volume in KiloBytes
+	@Reference(lazy=true)
+	private Hotspot hotspot;
+	private BigDecimal cost;//cost is calculated by the charging engine
+	private BigDecimal resellerRevenue; //revenue earned by reseller based on sharing plan	
+	private Double trafficVolume;//volume in KiloBytes
 	
-	Double duration; //connection duration; use duration or startDate/endDate
-	Date startDate;
-	Date endDate;
+	private Double duration; //connection duration; use duration or startDate/endDate
+	private Date startDate;
+	private Date endDate;
+	@Reference(lazy=true)
+	BillingRate billingRate;
 	
 	public Transaction() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Transaction(Key<Client> client, Key<Hotspot> hotspot,
+	public Transaction(Client client, Hotspot hotspot,
 			Double trafficVolume, Double duration) {
 		super();
 		this.client = client;
@@ -45,19 +49,6 @@ public class Transaction extends BaseEntity{
 		this.endDate = endDate;
 	}
 
-	/**
-	 * @return the client
-	 */
-	public Key<Client> getClient() {
-		return client;
-	}
-
-	/**
-	 * @param client the client to set
-	 */
-	public void setClient(Key<Client> client) {
-		this.client = client;
-	}
 
 	/**
 	 * @return the clientPhoneNumber
@@ -73,20 +64,7 @@ public class Transaction extends BaseEntity{
 		this.clientPhoneNumber = clientPhoneNumber;
 	}
 
-	/**
-	 * @return the hotspot
-	 */
-	public Key<Hotspot> getHotspot() {
-		return hotspot;
-	}
-
-	/**
-	 * @param hotspot the hotspot to set
-	 */
-	public void setHotspot(Key<Hotspot> hotspot) {
-		this.hotspot = hotspot;
-	}
-
+	
 	/**
 	 * @return the cost
 	 */
@@ -170,7 +148,47 @@ public class Transaction extends BaseEntity{
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	
-	
+
+	/**
+	 * @return the client
+	 */
+	public Client getClient() {
+		return client;
+	}
+
+	/**
+	 * @param client the client to set
+	 */
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	/**
+	 * @return the hotspot
+	 */
+	public Hotspot getHotspot() {
+		return hotspot;
+	}
+
+	/**
+	 * @param hotspot the hotspot to set
+	 */
+	public void setHotspot(Hotspot hotspot) {
+		this.hotspot = hotspot;
+	}
+
+	/**
+	 * @return the billingRate
+	 */
+	public BillingRate getBillingRate() {
+		return billingRate;
+	}
+
+	/**
+	 * @param billingRate the billingRate to set
+	 */
+	public void setBillingRate(BillingRate billingRate) {
+		this.billingRate = billingRate;
+	}
 	
 }

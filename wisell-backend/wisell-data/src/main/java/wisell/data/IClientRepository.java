@@ -8,6 +8,7 @@ public interface IClientRepository {
 	public String create(Client client);
 	public void delete(String id);
 	public Client get(String id);
+	public void update(Client client);
 	public Client findByPhoneNumber(String phoneNumber);
 	public List<Client> findAll(int page, int pageSize);
 

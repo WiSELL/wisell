@@ -1,6 +1,7 @@
 package wisell.model;
 
 import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Indexed;
 
 /**
  * 
@@ -8,9 +9,11 @@ import org.mongodb.morphia.annotations.Entity;
  */
 @Entity(value="hotspots")
 public class Hotspot extends BaseEntity{
+	@Indexed
 	private String phoneNumber;
 	private String phoneIMEI;
 	private String password;
+	private String hotspotSSID;
 	private String resellerFirstName;
 	private String resellerLastName;
 	private String resellerAddress;
@@ -135,8 +138,17 @@ public class Hotspot extends BaseEntity{
 	public void setLocked(Boolean locked) {
 		this.locked = locked;
 	}
-	
-	
-	
-	
+	/**
+	 * @return the hotspotSSID
+	 */
+	public String getHotspotSSID() {
+		return hotspotSSID;
+	}
+	/**
+	 * @param hotspotSSID the hotspotSSID to set
+	 */
+	public void setHotspotSSID(String hotspotSSID) {
+		this.hotspotSSID = hotspotSSID;
+	}	
+		
 }

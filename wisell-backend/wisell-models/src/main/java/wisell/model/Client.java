@@ -1,6 +1,7 @@
 package wisell.model;
 
 import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Indexed;
 /**
  * 
  * @author yazid
@@ -8,6 +9,7 @@ import org.mongodb.morphia.annotations.Entity;
  */
 @Entity(value="clients")
 public class Client extends BaseEntity{
+	@Indexed
 	private String phoneNumber;
 	private String phoneIMEI;
 	

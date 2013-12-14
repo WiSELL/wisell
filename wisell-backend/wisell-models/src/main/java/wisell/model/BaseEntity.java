@@ -21,29 +21,18 @@ import com.mongodb.DBObject;
  * @author yazid
  */
 
-public abstract class BaseEntity {
-	// auto-generated, if not set (see ObjectId)
+public abstract class BaseEntity {	
 	@Id	
 	protected ObjectId id;
-	@Property(value = "createdDate")
-	protected Date createdDate = null;
+	@Property(value = "creationDate")
+	protected Date creationDate = null;
 	protected Date updateDate = null;
 
 	// Lifecycle methods -- Pre/PostLoad, Pre/PostPersist...
 	@PrePersist
-	void prePersist(DBObject dbObj) {
-		this.createdDate = new Date();
-	}
-
-	@PreSave
-	void preUpdate(DBObject dbObj) {
-		this.updateDate = new Date();
-	}
-
-	@PostLoad
-	@PostPersist
-	void postLoad(DBObject dbObj) {
-		System.out.println("postLoad object " + dbObj);
+	void prePersist() {
+		this.creationDate = (creationDate == null) ? new Date() : creationDate;
+        this.updateDate = (updateDate == null) ? creationDate : new Date();
 	}
 
 	public ObjectId getId() {
@@ -59,18 +48,18 @@ public abstract class BaseEntity {
 	}
 
 	/**
-	 * @return the createdDate
+	 * @return the creationDate
 	 */
 	public Date getCreatedDate() {
-		return createdDate;
+		return creationDate;
 	}
 
 	/**
-	 * @param createdDate
-	 *            the createdDate to set
+	 * @param creationDate
+	 *            the creationDate to set
 	 */
 	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
+		this.creationDate = createdDate;
 	}
 
 	/**
